@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مميزات المنتج - ذكرة أورب™</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #ffffff;
+            background: #0a0a0a;
+        }
+
+        /* Product Features Section */
+        .product-features-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .product-features-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .section-title.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease 0.2s;
+        }
+
+        .section-subtitle.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        /* Feature Card */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .feature-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(212, 175, 55, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+        }
+
+        /* Feature Image */
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card:hover .feature-image {
+            transform: scale(1.05);
+        }
+
+        /* Feature Content */
+        .feature-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-features-section {
+                padding: 60px 15px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 400px;
+                margin: 40px auto 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem;
+            }
+            
+            .feature-card {
+                padding: 25px 20px;
+            }
+            
+            .feature-image {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-features-section {
+                padding: 40px 10px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .feature-card {
+                padding: 20px 15px;
+            }
+            
+            .feature-image {
+                height: 160px;
+            }
+            
+            .feature-title {
+                font-size: 1.2rem;
+            }
+            
+            .feature-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animation Delays */
+        .feature-card:nth-child(1) { transition-delay: 0.1s; }
+        .feature-card:nth-child(2) { transition-delay: 0.2s; }
+        .feature-card:nth-child(3) { transition-delay: 0.3s; }
+        .feature-card:nth-child(4) { transition-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <section class="product-features-section" id="product-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مميزات ذكرة أورب™</h2>
+                <p class="section-subtitle">اكتشف ما يجعل ذكرة أورب™ فريداً ومميزاً في عالم التكنولوجيا الحديثة</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="arabic_panel_1.png" alt="يدعم استيراد الفيديو - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">يدعم استيراد الفيديو</h3>
+                        <p class="feature-description">احتفظ بذكرياتك المرئية مع دعم كامل لاستيراد الفيديوهات عالية الجودة. يمكنك رفع مقاطع الفيديو المفضلة لديك والاستمتاع بها في أي وقت.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="arabic_panel_2.png" alt="الشحن عبر USB - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">الشحن عبر USB</h3>
+                        <p class="feature-description">شحن سريع وآمن عبر منفذ USB-C الحديث. بطارية تدوم طويلاً مع تقنية الشحن الذكي التي تحافظ على عمر البطارية.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="arabic_panel_3.png" alt="الشحن عبر USB - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">الشحن عبر USB</h3>
+                        <p class="feature-description">تصميم مرن مع الشحن عبر USB يمكنك من استخدام الجهاز بطرق متعددة. مريح وآمن في جميع الأوقات.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="arabic_panel_4.png" alt="تعليمات التحكم - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">تعليمات التحكم</h3>
+                        <p class="feature-description">واجهة تحكم بديهية وسهلة الاستخدام مع تعليمات واضحة. لا حاجة لخبرة تقنية، فقط استمتع بتجربة بسيطة وممتعة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe section title and subtitle
+            const sectionTitle = document.querySelector('.section-title');
+            const sectionSubtitle = document.querySelector('.section-subtitle');
+            const featureCards = document.querySelectorAll('.feature-card');
+
+            if (sectionTitle) observer.observe(sectionTitle);
+            if (sectionSubtitle) observer.observe(sectionSubtitle);
+            
+            // Observe feature cards with staggered animation
+            featureCards.forEach((card, index) => {
+                observer.observe(card);
+            });
+
+            // Add smooth scroll behavior
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+
+        // Performance optimization: Preload critical images
+        function preloadImages() {
+            const imageUrls = ['arabic_panel_1.png', 'arabic_panel_2.png', 'arabic_panel_3.png', 'arabic_panel_4.png'];
+            imageUrls.forEach(url => {
+                const img = new Image();
+                img.src = url;
+            });
+        }
+
+        // Initialize preloading
+        preloadImages();
+
+        // Add keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                // Ensure focus is visible
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Add focus styles for accessibility
+        const style = document.createElement('style');
+        style.textContent = `
+            .keyboard-navigation .feature-card:focus {
+                outline: 2px solid #d4af37;
+                outline-offset: 2px;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

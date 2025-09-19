@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ذكرة أورب™ - هدية تحمل ذكرياتك</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Supabase -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+            </div>
+            <div class="nav-logo">
+                <h2>ذكرة أورب™</h2>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Floating Bubbles -->
+        <div class="floating-bubbles">
+            <div class="bubble bubble-1">
+                <img src="candidate_1.png" alt="فقاعة وردية" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 1 loaded')" onerror="console.log('Bubble 1 failed to load')">
+            </div>
+            <div class="bubble bubble-2">
+                <img src="candidate_2.png" alt="فقاعة صفراء" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 2 loaded')" onerror="console.log('Bubble 2 failed to load')">
+            </div>
+            <div class="bubble bubble-3">
+                <img src="candidate_3.png" alt="فقاعة حمراء" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 3 loaded')" onerror="console.log('Bubble 3 failed to load')">
+            </div>
+            <div class="bubble bubble-4">
+                <img src="candidate_4.png" alt="فقاعة زرقاء" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 4 loaded')" onerror="console.log('Bubble 4 failed to load')">
+            </div>
+            <div class="bubble bubble-5">
+                <img src="candidate_5.png" alt="فقاعة خضراء" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 5 loaded')" onerror="console.log('Bubble 5 failed to load')">
+            </div>
+            <div class="bubble bubble-6">
+                <img src="candidate_6.png" alt="فقاعة بنفسجية" style="width: 80px; height: 80px; border-radius: 50%; display: block !important; opacity: 1 !important; visibility: visible !important;" onload="console.log('Bubble 6 loaded')" onerror="console.log('Bubble 6 failed to load')">
+            </div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>ذكرة أورب™</h1>
+            <p class="hero-subtitle">هدية تحمل ذكرياتك</p>
+            <p class="hero-description">احتفظ بأغلى لحظاتك مع الصور والأصوات والعواطف المخصصة</p>
+            <button class="cta-button" onclick="scrollToProduct()">تسوق الآن</button>
+        </div>
+    </section>
+
+
+    <!-- Product Section -->
+    <section class="product-section" id="product">
+        <div class="container">
+            <div class="product-grid">
+                <!-- Product Images -->
+                <div class="product-images">
+                    <div class="main-image-container">
+                        <img src="51JkiHBv2GL._AC_SL1001_.jpg" alt="ذكرة أورب™ - العرض الرئيسي" class="main-product-image" id="mainProductImage">
+                    </div>
+                    <div class="image-thumbnails">
+                        <div class="thumbnail active" data-image="1">
+                            <img src="51JkiHBv2GL._AC_SL1001_.jpg" alt="ذكرة أورب™ - العرض الرئيسي">
+                        </div>
+                        <div class="thumbnail" data-image="2">
+                            <img src="61pT41KcGlL._AC_SL1001_.png" alt="ذكرة أورب™ - مع الأفلام">
+                        </div>
+                        <div class="thumbnail" data-image="3">
+                            <img src="71P2vxByl8L._AC_SL1500_.jpg" alt="ذكرة أورب™ - الكرات الملونة">
+                        </div>
+                        <div class="thumbnail" data-image="4">
+                            <img src="810WyZXNoFL._AC_SX679_.png" alt="ذكرة أورب™ - في الاستخدام">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h2>ذكرة أورب™ الكلاسيكي</h2>
+                    <div class="price">
+                        <span class="current-price">349 ريال</span>
+                        <span class="original-price">599 ريال</span>
+                    </div>
+                    
+                    <div class="product-description">
+                        <p>حول ذكرياتك الثمينة إلى كرة متوهجة جميلة تجلب الفرح لأي مساحة. مثالية للهدايا والمناسبات الخاصة.</p>
+                    </div>
+
+                    <!-- Color Selection -->
+                    <div class="color-selection">
+                        <h3>اختر اللون</h3>
+                        <div class="color-options">
+                            <!-- Only black and white options are available. Each option specifies the view to display when selected. -->
+                            <div class="color-option active" data-color="black" data-image="1">
+                                <div class="color-circle black"></div>
+                                <span>أسود</span>
+                            </div>
+                            <div class="color-option" data-color="white" data-image="3">
+                                <div class="color-circle white"></div>
+                                <span>أبيض</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="quantity-selection">
+                        <h3>الكمية</h3>
+                        <div class="quantity-controls">
+                            <button class="qty-btn" onclick="changeQuantity(-1)">-</button>
+                            <span class="quantity" id="quantity">1</span>
+                            <button class="qty-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button class="add-to-cart-btn" onclick="addToCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            أضف للسلة
+                        </button>
+                        <button class="buy-now-btn" onclick="buyNow()">
+                            <i class="fas fa-bolt"></i>
+                            اشتر الآن
+                        </button>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="product-features">
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>10 فيديوهات</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>10 دقائق تسجيل صوتي</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>شحن مجاني في السعودية</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check"></i>
+                            <span>ضمان لمدة سنة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="product-features-section" id="characteristics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مميزات ذكرة أورب™</h2>
+                <p class="section-subtitle">اكتشف ما يجعل ذكرة أورب™ فريداً ومميزاً في عالم التكنولوجيا الحديثة</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <img src="arabic_panel_1.png" alt="يدعم استيراد الفيديو - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">يدعم استيراد الفيديو</h3>
+                        <p class="feature-description">احتفظ بذكرياتك المرئية مع دعم كامل لاستيراد الفيديوهات عالية الجودة. يمكنك رفع مقاطع الفيديو المفضلة لديك والاستمتاع بها في أي وقت.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card wrist-strap">
+                    <img src="arabic_panel_2.png" alt="حزام معصم قابل للفصل - ميزة ذكرة أورب™" class="feature-image wrist-strap-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">حزام معصم قابل للفصل</h3>
+                        <p class="feature-description">تصميم مرن مع حزام يمكن فصله وتركيبه بسهولة ليمنحك حرية حمل الجهاز بأمان وراحة طوال اليوم.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="arabic_panel_3.png" alt="الشحن عبر USB - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">الشحن عبر USB</h3>
+                        <p class="feature-description">شحن سريع وآمن عبر منفذ USB-C الحديث مع تقنية تحافظ على عمر البطارية وتضمن أداءً ثابتاً.</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <img src="arabic_panel_4.png" alt="تعليمات التحكم - ميزة ذكرة أورب™" class="feature-image" loading="lazy">
+                    <div class="feature-content">
+                        <h3 class="feature-title">تعليمات التحكم</h3>
+                        <p class="feature-description">واجهة تحكم بديهية وسهلة الاستخدام مع تعليمات واضحة. لا حاجة لخبرة تقنية، فقط استمتع بتجربة بسيطة وممتعة.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <h2>لماذا تختار ذكرة أورب™؟</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-memory"></i>
+                    </div>
+                    <h3>احفظ الذكريات</h3>
+                    <p>احتفظ بأجمل لحظاتك بجودة بصرية وصوتية مذهلة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3>هدية مثالية</h3>
+                    <p>مثالية لأعياد الميلاد والمناسبات الخاصة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3>قابل للتخصيص بالكامل</h3>
+                    <p>خصصها بصورك وأصواتك ورسائلك الخاصة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3>توصيل سريع</h3>
+                    <p>توصيل خلال 3-5 أيام في السعودية ودول الخليج</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2>ماذا يقول عملاؤنا</h2>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"أحلى هدية قد شريتها بحياتي! مرّة فخمة وأجمل من اللي توقعت."</p>
+                    <div class="reviewer">- سارة م.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"أمي دمعت من الفرح يوم شافت الهدية. ما توقعت إن الذكرى تطلع بهالشكل الجميل."</p>
+                    <div class="reviewer">- أحمد خ.</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p>"مميزة، شخصية ومرّه جميلة. فعلاً هدية غير شكل تخلي الذكرى تعيش."</p>
+                    <div class="reviewer">- فاطمة ع.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-overlay" onclick="closeCart()"></div>
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>سلة التسوق</h3>
+                <button class="close-cart" onclick="closeCart()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="cart-items" id="cartItems">
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>سلتك فارغة</p>
+                </div>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>المجموع: <strong id="cartTotal">0 ريال</strong></span>
+                </div>
+                <button class="checkout-btn" onclick="checkout()">الدفع</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal" id="checkoutModal">
+        <div class="checkout-overlay" onclick="closeCheckout()"></div>
+        <div class="checkout-content">
+            <div class="checkout-header">
+                <h3>إتمام الطلب</h3>
+                <button class="close-checkout" onclick="closeCheckout()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="checkout-body">
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h4>ملخص الطلب</h4>
+                    <div class="order-items" id="orderItems">
+                        <!-- Order items will be populated here -->
+                    </div>
+                    <div class="order-total">
+                        <span>المجموع: <strong id="orderTotal">0 ريال</strong></span>
+                    </div>
+                </div>
+
+                <!-- Customer Details Form -->
+                <form class="checkout-form" id="checkoutForm" onsubmit="processOrder(event)">
+                    <h4>بيانات العميل</h4>
+                    
+                    <div class="form-group">
+                        <label for="customerName">الاسم الكامل *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerEmail">البريد الإلكتروني *</label>
+                        <input type="email" id="customerEmail" name="customerEmail" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerPhone">رقم الهاتف *</label>
+                        <input type="tel" id="customerPhone" name="customerPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerAddress">العنوان الكامل *</label>
+                        <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="customerCity">المدينة *</label>
+                        <select id="customerCity" name="customerCity" required>
+                            <option value="">اختر المدينة</option>
+                            <option value="riyadh">الرياض</option>
+                            <option value="jeddah">جدة</option>
+                            <option value="dammam">الدمام</option>
+                            <option value="makkah">مكة المكرمة</option>
+                            <option value="medina">المدينة المنورة</option>
+                            <option value="taif">الطائف</option>
+                            <option value="khobar">الخبر</option>
+                            <option value="dhahran">الظهران</option>
+                            <option value="other">أخرى</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deliveryNotes">ملاحظات التوصيل (اختياري)</label>
+                        <textarea id="deliveryNotes" name="deliveryNotes" rows="2" placeholder="أي ملاحظات خاصة للتوصيل..."></textarea>
+                    </div>
+                    
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+                            <span class="checkmark"></span>
+                            أوافق على <a href="#" onclick="showTerms()">الشروط والأحكام</a> و <a href="#" onclick="showPrivacy()">سياسة الخصوصية</a>
+                        </label>
+                    </div>
+                    
+                    <div class="checkout-actions">
+                        <button type="button" class="back-to-cart-btn" onclick="backToCart()">
+                            <i class="fas fa-arrow-right"></i>
+                            العودة للسلة
+                        </button>
+                        <button type="submit" class="place-order-btn">
+                            <i class="fas fa-credit-card"></i>
+                            تأكيد الطلب
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ذكرة أورب™</h3>
+                    <p>هدية تحمل ذكرياتك</p>
+                </div>
+                <div class="footer-section">
+                    <h4>تواصل معنا</h4>
+                    <p><i class="fas fa-envelope"></i> info@dikraorb.com</p>
+                    <p><i class="fab fa-whatsapp"></i> +212658970357</p>
+                </div>
+                <div class="footer-section">
+                    <h4>تابعنا</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ذكرة أورب™. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="product-images.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
