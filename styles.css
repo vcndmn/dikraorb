@@ -1245,6 +1245,28 @@ body {
     overflow-y: auto;
 }
 
+/* Cart item with thumbnail image */
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    direction: rtl;
+}
+
+.cart-item-thumbnail {
+    flex-shrink: 0;
+}
+
+.cart-item-thumbnail img {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
 .empty-cart {
     text-align: center;
     color: #666;
@@ -1747,6 +1769,39 @@ body {
         gap: 1rem;
         /* Remove grid definitions */
         grid-template-columns: none;
+    }
+
+    /* On mobile, display thumbnails in a single horizontal row with scrolling
+       instead of occupying multiple rows. This prevents the thumbnails from
+       taking up too much vertical space while still making them accessible.
+       The items will scroll horizontally when overflowed. */
+    .image-thumbnails {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .image-thumbnails::-webkit-scrollbar {
+        height: 6px;
+    }
+    .image-thumbnails::-webkit-scrollbar-track {
+        background: #f0f0f0;
+        border-radius: 10px;
+    }
+    .image-thumbnails::-webkit-scrollbar-thumb {
+        background: #d4af37;
+        border-radius: 10px;
+    }
+
+    /* Reduce thumbnail width and height on smaller screens */
+    .thumbnail {
+        flex: 0 0 auto;
+        width: 60px;
+    }
+    .thumbnail img {
+        height: 60px;
     }
 
     .features-grid {

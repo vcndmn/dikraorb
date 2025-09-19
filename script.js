@@ -158,6 +158,8 @@ function addToCart() {
     
     updateCartDisplay();
     showAddToCartFeedback();
+    // Immediately open the cart modal so the user can review and proceed to payment
+    openCart();
 }
 
 function getCurrentOrbStyle() {
@@ -243,9 +245,16 @@ function updateCartModal() {
                 'black': 'أسود',
                 'white': 'أبيض'
             };
+
+            // Determine image source for the cart item based on selected color and view
+            const viewId = parseInt(item.image);
+            const productImgSrc = getProductImage(item.color, viewId);
             
             return `
                 <div class="cart-item">
+                    <div class="cart-item-thumbnail">
+                        <img src="${productImgSrc}" alt="صورة المنتج" />
+                    </div>
                     <div class="item-info">
                         <h4>${item.name}</h4>
                         <p>اللون: ${colorNames[item.color] || item.color}</p>
